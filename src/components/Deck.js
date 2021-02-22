@@ -138,7 +138,7 @@ class Deck extends Component {
     }
 
     handle_boundaries = () => {
-        if (Math.round(this.last_positions[0]) <= this.left_boundary) {
+        if (Math.round(this.last_positions[0]) <= Math.round(this.left_boundary)) {
             const end_of_deck = this.last_positions[this.number_of_cards_by_index] + this.new_width;
 
             this.images.children[0].style.left = `${end_of_deck}px`;
@@ -147,7 +147,7 @@ class Deck extends Component {
             this.images.appendChild(this.images.children[0], this.images.children[this.number_of_cards_by_index]);
             this.last_positions.splice(this.number_of_cards_by_index, 0, this.last_positions.shift());
         }
-        if (Math.round(this.last_positions[this.number_of_cards_by_index]) >= this.right_boundary) {
+        if (Math.round(this.last_positions[this.number_of_cards_by_index]) >= Math.round(this.right_boundary)) {
             const beginning_of_deck = this.last_positions[0] - this.new_width;
 
             this.images.children[this.number_of_cards_by_index].style.left = `${beginning_of_deck}px`;
